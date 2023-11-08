@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <span th:text="'Hello, '+${loggedInUser}"></span>
+    <p>
+        <a href="/logout">Sign out</a>
+    </p>
+</div>
+
+<div class="container">
+    <table class="table table-success">
+        <thead>
+        <caption> These are the projects you're coordinating</caption>
+        <tr>
+            <td><h5>Project name</h5></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${projects.empty}">
+            <td>No project at the moment</td>
+        </tr>
+        <tr th:each="p:${projects}">
+            <td th:text ="${p.name}">Name</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>
